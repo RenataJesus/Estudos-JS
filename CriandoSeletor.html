@@ -22,7 +22,7 @@
 
             <div class="col-12 p-5">
 
-                <select id="estado" class="form-control" onclick="Estado()">
+                <select id="estado" class="form-control" onclick="Estado(this)">
                 
                 <option value="SP"> São Paulo </option>
                 <option value="AM"> Amazonas</option>
@@ -49,8 +49,8 @@
     </script>
 
     <script>
-       function Estado(){
-           let estado =document.querySelector('#estado');
+       function Estado(element){
+          
             document.querySelector("#estado01").innerHTML = estado.value;
 
         }
