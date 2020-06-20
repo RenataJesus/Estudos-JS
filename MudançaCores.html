@@ -31,9 +31,27 @@
 
             <div class="col-3">
 
-                <div id="div1" onmouseover="Cor1()" onmouseout="Cor2()" class="myDiv"> </div>
-                <br> 
-                 <div id="div2" onmouseover="Cor1()" onmouseout="Cor2()" class="myDiv"></div>
+                <div id="div1" onmouseover="Cor1(this)" onmouseout="Cor2(this)" class="myDiv"> </div>
+                <br>
+                <div id="div2" onmouseover="Cor1(this)" onmouseout="Cor2(this)" class="myDiv"></div>
+            </div>
+            <div class="col-3">
+
+                <div id="div1" onmouseover="Cor1(this)" onmouseout="Cor2(this)" class="myDiv"> </div>
+                <br>
+                <div id="div2" onmouseover="Cor1(this)" onmouseout="Cor2(this)" class="myDiv"></div>
+            </div>
+            <div class="col-3">
+
+                <div id="div1" onmouseover="Cor1(this)" onmouseout="Cor2(this)" class="myDiv"> </div>
+                <br>
+                <div id="div2" onmouseover="Cor1(this)" onmouseout="Cor2(this)" class="myDiv"></div>
+            </div>
+            <div class="col-3">
+
+                <div id="div1" onmouseover="Cor1(this)" onmouseout="Cor2(this)" class="myDiv"> </div>
+                <br>
+                <div id="div2" onmouseover="Cor1(this)" onmouseout="Cor2(this)" class="myDiv"></div>
             </div>
 
         </div>
@@ -51,19 +69,15 @@
     </script>
 
     <script>
-        function Cor1() {
-            document.querySelector('#div1').style.backgroundColor = "Red";
-                document.querySelector('#div2').style.backgroundColor = "Pink";
-        }
-
-        function Cor2() {
-            document.querySelector('#div1').style.backgroundColor = "Blue";
-                  document.querySelector('#div2').style.backgroundColor = "Purple";
-        }
-
-       
+        function Cor1(element) {
+            element.style.backgroundColor = "Red";
             
-        
+        }
+
+        function Cor2(element) {
+            
+            element.style.backgroundColor = "Purple";
+        }
     </script>
 </body>
 
