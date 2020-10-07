@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Aula JS 18-06-2020</title>
-    <link rel="stylesheet" href="../../../../Arquivos%20de%20trabalho/RENATA%20APARECIDA%20MARINS%20DE%20JESUS/Aula%2017%20-%2018-06-2020/bootstrap-4.5.0-dist/bootstrap-4.5.0-dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha512-znmTf4HNoF9U6mfB6KlhAShbRvbt4CvCaHoNV0gyssfToNQ/9A0eNdUbvsSwOIUoJdMjFG2ndSvr0Lo3ZpsTqQ==" crossorigin="anonymous"/>
 
     <style>
         .myDiv {
@@ -19,52 +19,36 @@
 
 <body>
 
-    <header class="text-center" style="background-color: rgb(198, 231, 161);">
+<header class="text-center" style="background-color: rgb(198, 231, 161);">
+    <h1> Revisão </h1>
+</header>
 
-        <h1> Revisão </h1>
+<main class="container m-5">
 
-    </header>
+    <div class="row">
 
-    <main class="container m-5">
-
-        <div class="row">
-
-            <div class="col-3">
-
-                <div id="div1" onmouseover="Cor1()" onmouseout="Cor2()" class="myDiv"> </div>
-                <br> 
-                 <div id="div2" onmouseover="Cor1()" onmouseout="Cor2()" class="myDiv"></div>
-            </div>
-
+        <div class="col-3">
+            <div id="div1" onmouseover="Cor1()" onmouseout="Cor2()" class="myDiv"></div>
+            <br>
+            <div id="div2" onmouseover="Cor1()" onmouseout="Cor2()" class="myDiv"></div>
         </div>
 
-    </main>
+    </div>
 
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
-        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous">
-    </script>
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
-        integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous">
-    </script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"
-        integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous">
-    </script>
+</main>
 
-    <script>
-        function Cor1() {
-            document.querySelector('#div1').style.backgroundColor = "Red";
-                document.querySelector('#div2').style.backgroundColor = "Pink";
-        }
+<script>
+    function Cor1() {
+        document.querySelector('#div1').style.backgroundColor = "Red";
+        document.querySelector('#div2').style.backgroundColor = "Pink";
+    }
 
-        function Cor2() {
-            document.querySelector('#div1').style.backgroundColor = "Blue";
-                  document.querySelector('#div2').style.backgroundColor = "Purple";
-        }
+    function Cor2() {
+        document.querySelector('#div1').style.backgroundColor = "Blue";
+        document.querySelector('#div2').style.backgroundColor = "Purple";
+    }
 
-       
-            
-        
-    </script>
+</script>
 </body>
 
 </html>

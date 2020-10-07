@@ -1,99 +1,86 @@
 <!DOCTYPE html>
-
-<html>
-
+<html lang="pt-BR">
 <head>
-
-    <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
-        <title> Renata Jesus App - Bipe</title>
-        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
-            integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-
-        <style>
-            .corlabel {
-                background-color:#a9ec8f;
-            }
-        </style>
-    </head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
+    <title> Renata Jesus App - Bipe</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha512-znmTf4HNoF9U6mfB6KlhAShbRvbt4CvCaHoNV0gyssfToNQ/9A0eNdUbvsSwOIUoJdMjFG2ndSvr0Lo3ZpsTqQ==" crossorigin="anonymous" />
+    <style>
+        .corlabel {
+            background-color: #a9ec8f;
+        }
+    </style>
 </head>
 
-<body style="background-color:#dce2da;">
-    <div class="container">
+<body style="background-color: #dce2da">
+<div class="container">
 
-        <header class="jumbotron" style="background-color:#63bb40;">
+    <header class="jumbotron" style="background-color: #63bb40">
+        <h1 style="text-align: center">Aula IMC</h1>
+    </header>
 
-            <h1 style="text-align: center; ">Aula IMC</h1>
+    <main class="container" style="background-color: #fff">
+        <div class="col-12">
+            <label for="peso">Peso KG </label>
+            <input id="peso" class="form-control corlabel" placeholder="Digite seu peso em KG" type="number">
+        </div>
+        <div class="col-12">
+            <label for="altura">Altura</label>
+            <input id="altura" class="form-control corlabel" placeholder="Digite sua altura" type="number">
+        </div>
 
-        </header>
+        <button class="btn btn-block mt-4" id="btn" style="background-color: #7cdb56">Calcular IMC</button>
 
-        <main class="container" style="background-color:#ffffff">
-            <div class="col-12">
-                <label for="peso">Peso KG </label>
-                <input id="peso" class="form-control corlabel" placeholder="Digite seu peso em KG" type="number">
-            </div>
-            <div class="col-12">
-                <label>Altura </label>
-                <input id="altura" class="form-control corlabel" placeholder="Digite sua altura" type="number">
-            </div>
+        <div id="resultado" class="p-5"></div>
 
-            
-            <button class="btn btn-block mt-4" id="btn" style="background-color: #7cdb56;">Calcular IMC</button>
+    </main>
+</div>
 
-            <div id="resultado">
+<script>
+    document.querySelector('#btn').addEventListener('click', () => {
+        let peso = document.querySelector('#peso').value;
+        let altura = document.querySelector('#altura').value;
+        let imc = peso / (altura * altura);
+        let classification = [];
 
-            </div>
-        </main>
-    </div>
-    <script type="text/javascript" src="cordova.js"></script>
+        document.querySelector('#resultado').innerHTML = `<hr> <p > IMC: ${imc.toFixed(2)} </p>`;
 
+        if (imc < 16) {
+            classification[0] = 'Magreza grave';
+            classification[1] = '#265ebf';
 
-    <script>
-        document.querySelector('#btn').addEventListener('click', () => {
-            let peso = document.querySelector('#peso').value;
-            let altura = document.querySelector('#altura').value;
-            let imc = peso / (altura * altura);
-            let classification=[];
+        } else if (imc >= 16 && imc < 16.9) {
+            classification[0] = 'Magreza moderada';
+            classification[1] = '#142ea3';
 
-            document.querySelector('#resultado').innerHTML = `<hr> <p > IMC: ${imc.toFixed(2)} </p>`;
+        } else if (imc >= 16.9 && imc < 18.4) {
+            classification[0] = 'Magreza leve';
+            classification[1] = '#3314a3';
 
-            if(imc<16){
-                classification[0] ='Magreza grave'; 
-                classification[1] = '#265ebf';
+        } else if (imc >= 18.4 && imc < 24.9) {
+            classification[0] = 'Saudável';
+            classification[1] = '#1ee014';
 
-            }else if (imc >=16 && imc<16.9){
-                classification[0] ='Magreza moderada';
-                classification[1]= '#142ea3';
+        } else if (imc >= 24.9 && imc < 29.99) {
+            classification[0] = 'Sobrepeso';
+            classification[1] = '#f5b30c';
 
-            }else if(imc>= 16.9 && imc<18.4){
-                classification[0]='Magreza leve';
-                classification[1]='#3314a3';
+        } else if (imc >= 29.99 && imc < 34.9) {
+            classification[0] = 'Obesidade grau 1';
+            classification[1] = '#ed8b21';
 
-            }else if(imc>=18.4 && imc<24.9){
-                classification[0]='Saudável';
-                classification[1]='#1ee014';
+        } else if (imc >= 34.9 && imc < 39.9) {
+            classification[0] = 'Obesidade grau 2';
+            classification[1] = '#ed5721';
 
-            }else if (imc>=24.9 && imc<29.99){
-                classification[0]='Sobrepeso';
-                classification[1]='#f5b30c';
+        } else {
+            classification[0] = 'Obesidade grau 3'
+            classification[1] = '#f70008'
+        }
 
-            }else if(imc>= 29.99 && imc<34.9){
-                classification[0]='Obesidade grau 1';
-                classification[1]='#ed8b21';
-
-            }else if(imc>= 34.9 && imc<39.9){
-                classification[0]='Obesidade grau 2';
-                classification[1]='#ed5721';
-                
-            }else{
-                classification[0]='Obesidade grau 3'
-                classification[1]='#f70008'
-            }
-
-            document.querySelector('#resultado').innerHTML += `<p style="color:${classification[1]}"> ${classification[0]}</p>`;
-        });
-    </script>
+        document.querySelector('#resultado').innerHTML += `<p style="color:${classification[1]}"> ${classification[0]}</p>`;
+    });
+</script>
 </body>
 
 </html>
